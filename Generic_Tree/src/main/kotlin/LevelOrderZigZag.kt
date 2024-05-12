@@ -1,6 +1,7 @@
 package org.example
 
-fun LevelOrderZigZag(node: Node?) {
+
+fun levelOrderZigZag(node: Node?) {
     if (node == null) {
         println("Tree is empty")
         return
@@ -28,4 +29,41 @@ fun LevelOrderZigZag(node: Node?) {
             output = ArrayList()
         }
     }
+}
+
+fun levelOrderZigZag2Stacks(node: Node?) {
+    if (node == null) {
+        println("Tree is empty")
+        return
+    }
+
+    var cLevel = Stack()
+    var nLevel = Stack()
+    cLevel.push(node)
+    var level = 0
+
+    while (cLevel.size != 0) {
+        val cNode = cLevel.pop()
+
+        if (level == 0) {
+            cNode.children.forEach {
+                nLevel.push(it)
+            }
+        }
+        else {
+            for (i in cNode.children.lastIndex downTo  0) {
+                nLevel.push(cNode.children[i])
+            }
+        }
+
+        print("${cNode.data} ")
+
+        if (cLevel.size == 0) {
+            cLevel = nLevel
+            nLevel = Stack()
+            level = if (level == 0) 1 else 0
+            println()
+        }
+    }
+
 }
