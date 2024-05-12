@@ -46,5 +46,13 @@ fun main() {
     println("BF/Level order zig zag of tree using 2 stacks")
     levelOrderZigZag2Stacks(root)
     println("---------------")
+    println("Mirror the tree")
+    mirrorTheTree(root)
+    displayTree(root)
+    println("---------------")
+    println("Remove leaf nodes")
+    removeLeafNodes(root)
+    displayTree(root)
+    println("---------------")
 
 }
