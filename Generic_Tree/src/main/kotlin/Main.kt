@@ -82,4 +82,23 @@ fun main() {
     println("Are trees similar in shape")
     println(similarInShape(root, root2))
     println("---------------")
+    println("Are trees mirror in shape")
+    val r1 = createTree(intArrayOf(10, 20, 40, -1, 70, -1, -1, 30, 50, -1, 60, -1, -1, -1))
+    val r2 = createTree(intArrayOf(10, 20, -1, 30, -1, -1))
+    println(isMirrorInShape(r1, r2))
+    println("---------------")
+    println("Is tree symmetric ?")
+    println(isSymmetricInShape(r1))
+    println("---------------")
+    println("MultiSolver:")
+    multiSolver(root, 0)
+    println(
+        """
+    Count -> $size
+    Min value -> $minValue
+    Max value -> $maxValue
+    Height -> $height""".trimIndent()
+    )
+    println("---------------")
+
 }
