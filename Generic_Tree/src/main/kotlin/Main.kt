@@ -124,7 +124,18 @@ fun main() {
         )
     )
     displayTree(r1)
-    nodeMaxSubTreeSum(r1 ).let(::println)
+    nodeMaxSubTreeSum(r1).let(::println)
     println("---------------")
+    println("Diameter of generic tree")
+    r1 = createTree(
+        intArrayOf(
+            10, 20, 50, 70, 80, -1, -1, -1, 60, 80, 90, -1, -1, -1, -1, 30, -1, -1
+        )
+    )
+    displayTree(r1)
+    findDiameter(r1).let(::println)
+    println("---------------")
+    println("Iteratively traversing the tree")
+    iterativeTraversal(r1)
 
 }
