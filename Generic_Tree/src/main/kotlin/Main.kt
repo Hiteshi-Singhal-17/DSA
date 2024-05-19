@@ -11,7 +11,9 @@ fun main() {
         intArrayOf(10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1, -1)
     val root = createTree(input)
 
-    val input2 = intArrayOf(10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, 130, -1, -1, 90, -1, -1, 40, 100, -1, -1, -1)
+    val input2 = intArrayOf(
+        10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, 130, -1, -1, 90, -1, -1, 40, 100, -1, -1, -1
+    )
     val root2 = createTree(input2)
 
     println("---------------")
@@ -83,7 +85,7 @@ fun main() {
     println(similarInShape(root, root2))
     println("---------------")
     println("Are trees mirror in shape")
-    val r1 = createTree(intArrayOf(10, 20, 40, -1, 70, -1, -1, 30, 50, -1, 60, -1, -1, -1))
+    var r1 = createTree(intArrayOf(10, 20, 40, -1, 70, -1, -1, 30, 50, -1, 60, -1, -1, -1))
     val r2 = createTree(intArrayOf(10, 20, -1, 30, -1, -1))
     println(isMirrorInShape(r1, r2))
     println("---------------")
@@ -99,6 +101,30 @@ fun main() {
     Max value -> $maxValue
     Height -> $height""".trimIndent()
     )
+    println("---------------")
+    println("Find predecessor and successor")
+    val (p, s) = findPredecessorAndSuccessor(root, 130)
+    println("Predecessor: $p and Successor: $s")
+    println("---------------")
+    println("Find predecessor and successor refined")
+    val (pre, suc) = findPS(root, element = 10)
+    println("Predecessor: $pre and Successor: $suc")
+    println("---------------")
+    println("Ceil and floor")
+    val (ceil, floor) = findCeilAndFloor(root, 60)
+    println("Ceil: $ceil and Floor: $floor")
+    println("---------------")
+    println("Find kth largest element")
+    kLargestElement(root, 7).let(::println)
+    println("---------------")
+    println("Node with max subtree sum")
+    r1 = createTree(
+        intArrayOf(
+            10, 20, -50, -1, -60, -1, -1, 30, -70, -1, 80, -110, -1, 120, -1, -1, 90, -1, -1, 40, -100, -1, -1, -1
+        )
+    )
+    displayTree(r1)
+    nodeMaxSubTreeSum(r1 ).let(::println)
     println("---------------")
 
 }
